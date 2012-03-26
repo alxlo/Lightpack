@@ -92,7 +92,7 @@ public:
     static void setSerialPortBaudRate(const QString & baud);
     static QStringList getSupportedSerialPortBaudRates();
     static bool isConnectedDeviceUsesSerialPort();
-    // [Adalight | Ardulight | Lightpack | ... | Virtual]
+    // [Adalight | PentawallMini | Ardulight | Lightpack | ... | Virtual]
     static void setNumberOfLeds(SupportedDevices::DeviceType device, int numberOfLeds);
     static int getNumberOfLeds(SupportedDevices::DeviceType device);
 

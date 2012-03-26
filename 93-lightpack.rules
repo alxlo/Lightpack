@@ -32,6 +32,9 @@ SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="6666", ATTR{idPro
 # UsbAsp (http://www.fischl.de/usbasp/)
 SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="16c0", ATTR{idProduct}=="05dc", GROUP="users", MODE="0666"
 
+# PentalightFTDI
+#SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="0404", ATTR{idProduct}=="6001", GROUP="users", MODE="0666"
+
 
 #
 # In Ubuntu Lucid (10.04) udev rules file format has change, old file format looks like this:

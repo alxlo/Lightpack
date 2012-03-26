@@ -76,6 +76,7 @@ enum DeviceType {
     LightpackDevice,
     AlienFxDevice,
     AdalightDevice,
+    PentawallMiniDevice,
     VirtualDevice,
     ArdulightDevice,
 
@@ -91,6 +92,7 @@ enum Devices
     AbsoluteMaximum = 50,
 
     Adalight    = 50,
+    PentawallMini = 16,
     Ardulight   = 50,
     AlienFx     = 1,
     Virtual     = 50,
@@ -121,6 +123,7 @@ enum Options
     Default         = NumberOfLeds | Brightness | Gamma,
 
     Adalight        = Default | SerialPort,
+    PentawallMini		= Default | SerialPort,
     Ardulight       = Default | SerialPort,
     AlienFx         = Default,
     Lightpack       = Default | SmoothSlowdown | RefreshDelay | ColorDepth,

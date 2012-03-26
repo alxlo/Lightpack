@@ -30,6 +30,7 @@
 #include "LedDeviceLightpack.hpp"
 #include "LedDeviceAlienFx.hpp"
 #include "LedDeviceAdalight.hpp"
+#include "LedDevicePentawallMini.hpp"
 #include "LedDeviceArdulight.hpp"
 #include "LedDeviceVirtual.hpp"
 #include "Settings.hpp"
@@ -259,6 +260,10 @@ ILedDevice * LedDeviceFactory::createLedDevice(SupportedDevices::DeviceType devi
     case SupportedDevices::AdalightDevice:
         DEBUG_LOW_LEVEL << Q_FUNC_INFO << "SupportedDevices::AdalightDevice";
         return (ILedDevice *)new LedDeviceAdalight();
+
+    case SupportedDevices::PentawallMiniDevice:
+        DEBUG_LOW_LEVEL << Q_FUNC_INFO << "SupportedDevices::PentawallMiniDevice";
+        return (ILedDevice *)new LedDevicePentawallMini();
 
     case SupportedDevices::ArdulightDevice:
         DEBUG_LOW_LEVEL << Q_FUNC_INFO << "SupportedDevices::ArdulightDevice";

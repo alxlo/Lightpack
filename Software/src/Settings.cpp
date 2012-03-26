@@ -86,6 +86,10 @@ namespace Adalight
 {
 static const QString NumberOfLeds = "Adalight/NumberOfLeds";
 }
+namespace PentawallMini
+{
+static const QString NumberOfLeds = "PentawallMini/NumberOfLeds";
+}
 namespace Ardulight
 {
 static const QString NumberOfLeds = "Ardulight/NumberOfLeds";
@@ -113,6 +117,7 @@ namespace ConnectedDevice
 static const QString LightpackDevice = "Lightpack";
 static const QString AlienFxDevice = "AlienFx";
 static const QString AdalightDevice = "Adalight";
+static const QString PentawallMiniDevice = "PentawallMini";
 static const QString ArdulightDevice = "Ardulight";
 static const QString VirtualDevice = "Virtual";
 }
@@ -237,6 +242,7 @@ void Settings::Initialize( const QString & applicationDirPath, bool isDebugLevel
 
     // Init number of leds for each supported device
     setNewOptionMain(Main::Key::Adalight::NumberOfLeds,     Main::Adalight::NumberOfLedsDefault);
+    setNewOptionMain(Main::Key::PentawallMini::NumberOfLeds,     Main::PentawallMini::NumberOfLedsDefault);
     setNewOptionMain(Main::Key::Ardulight::NumberOfLeds,    Main::Ardulight::NumberOfLedsDefault);
     setNewOptionMain(Main::Key::AlienFx::NumberOfLeds,      Main::AlienFx::NumberOfLedsDefault);
     setNewOptionMain(Main::Key::Lightpack::NumberOfLeds,    Main::Lightpack::NumberOfLedsDefault);
@@ -650,6 +656,7 @@ QStringList Settings::getSupportedSerialPortBaudRates()
     QStringList list;
 
     // TODO: Add more baud rates if need it
+    list.append("230400");
     list.append("115200");
     list.append("57600");
     list.append("9600");
@@ -661,6 +668,8 @@ bool Settings::isConnectedDeviceUsesSerialPort()
     switch (getConnectedDevice())
     {
     case SupportedDevices::AdalightDevice:
+        return true;
+    case SupportedDevices::PentawallMiniDevice:
         return true;
     case SupportedDevices::ArdulightDevice:
         return true;
@@ -1270,11 +1279,13 @@ void Settings::initDevicesMap()
     DEBUG_LOW_LEVEL << Q_FUNC_INFO;
 
     m_devicesTypeToNameMap[SupportedDevices::AdalightDevice]  = Main::Value::ConnectedDevice::AdalightDevice;
+    m_devicesTypeToNameMap[SupportedDevices::PentawallMiniDevice]  = Main::Value::ConnectedDevice::PentawallMiniDevice;
     m_devicesTypeToNameMap[SupportedDevices::ArdulightDevice] = Main::Value::ConnectedDevice::ArdulightDevice;
     m_devicesTypeToNameMap[SupportedDevices::LightpackDevice] = Main::Value::ConnectedDevice::LightpackDevice;
     m_devicesTypeToNameMap[SupportedDevices::VirtualDevice]   = Main::Value::ConnectedDevice::VirtualDevice;
 
     m_devicesTypeToKeyNumberOfLedsMap[SupportedDevices::AdalightDevice]  = Main::Key::Adalight::NumberOfLeds;
+    m_devicesTypeToKeyNumberOfLedsMap[SupportedDevices::PentawallMiniDevice]  = Main::Key::PentawallMini::NumberOfLeds;
     m_devicesTypeToKeyNumberOfLedsMap[SupportedDevices::ArdulightDevice] = Main::Key::Ardulight::NumberOfLeds;
     m_devicesTypeToKeyNumberOfLedsMap[SupportedDevices::LightpackDevice] = Main::Key::Lightpack::NumberOfLeds;
     m_devicesTypeToKeyNumberOfLedsMap[SupportedDevices::VirtualDevice]   = Main::Key::Virtual::NumberOfLeds;

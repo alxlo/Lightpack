@@ -93,6 +93,7 @@ SOURCES += \
     LedDeviceLightpack.cpp \
     LedDeviceAlienFx.cpp \
     LedDeviceAdalight.cpp \
+    LedDevicePentawallMini.cpp \
     LedDeviceArdulight.cpp \
     LedDeviceVirtual.cpp \
     ColorButton.cpp \
@@ -128,6 +129,7 @@ HEADERS += \
     LedDeviceLightpack.hpp \
     LedDeviceAlienFx.hpp \
     LedDeviceAdalight.hpp \
+    LedDevicePentawallMini.hpp \
     LedDeviceArdulight.hpp \
     LedDeviceVirtual.hpp \
     ColorButton.hpp \

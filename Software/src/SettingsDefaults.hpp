@@ -32,9 +32,9 @@
 #include "enums.hpp"
 
 #ifdef ALIEN_FX_SUPPORTED
-#   define SUPPORTED_DEVICES            "Lightpack,AlienFx,Adalight,Ardulight,Virtual"
+#   define SUPPORTED_DEVICES            "Lightpack,AlienFx,Adalight,PentawallMini,Ardulight,Virtual"
 #else
-#   define SUPPORTED_DEVICES            "Lightpack,Adalight,Ardulight,Virtual"
+#   define SUPPORTED_DEVICES            "Lightpack,Adalight,PentawallMini,Ardulight,Virtual"
 #endif
 
 #ifdef WINAPI_GRAB_SUPPORT
@@ -97,6 +97,10 @@ static const QString BaudRateDefault = "115200";
 namespace Adalight
 {
 static const int NumberOfLedsDefault = 25;
+}
+namespace PentawallMini
+{
+static const int NumberOfLedsDefault = 16;
 }
 namespace Ardulight
 {
