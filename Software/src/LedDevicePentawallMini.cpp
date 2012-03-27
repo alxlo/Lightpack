@@ -193,18 +193,28 @@ bool LedDevicePentawallMini::writeBuffer(const QByteArray & buff)
     if (m_PentawallMiniDevice->isOpen() == false)
         return false;
 
-	m_PentawallMiniDevice->write("\x42");
 
 
 
-	m_PentawallMiniDevice->write("\x00",1);
+	char c = 0;
+//	m_PentawallMiniDevice->write("\x00",1);
+    for (char i = 0; i < m_colorsBuffer.count(); i++)
+    {
+
+    	c = i+1;
+    	 //qDebug() << Q_FUNC_INFO << "Test" << QString::number(c) << "TEST";
+    	m_PentawallMiniDevice->write("\x42");
+    	write_escaped(c);
+    	write_escaped(buff[3*i]);
+    	write_escaped(buff[3*i+1]);
+    	write_escaped(buff[3*i+2]);
+    }
+
 
 
 //	write_escaped(buff[0]);
-
-	write_escaped(buff[0]);
-	write_escaped(buff[1]);
-	write_escaped(buff[2]);
+//	write_escaped(buff[1]);
+//	write_escaped(buff[2]);
 	//m_PentawallMiniDevice->write(&c,1);
 	//c = buff[1];
 	//m_PentawallMiniDevice->write(&c,1);
