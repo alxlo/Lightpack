@@ -77,6 +77,7 @@ enum DeviceType {
     AlienFxDevice,
     AdalightDevice,
     PentawallMiniDevice,
+    PentawallNetDevice,
     VirtualDevice,
     ArdulightDevice,
 
@@ -93,6 +94,7 @@ enum Devices
 
     Adalight    = 50,
     PentawallMini = 16,
+    PentawallNet = 4,
     Ardulight   = 50,
     AlienFx     = 1,
     Virtual     = 50,
@@ -124,6 +126,7 @@ enum Options
 
     Adalight        = Default | SerialPort,
     PentawallMini		= Default | SerialPort,
+    PentawallNet		= Default | SerialPort,
     Ardulight       = Default | SerialPort,
     AlienFx         = Default,
     Lightpack       = Default | SmoothSlowdown | RefreshDelay | ColorDepth,

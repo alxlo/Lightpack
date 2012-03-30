@@ -345,6 +345,10 @@ void SettingsWindow::updateDeviceTabWidgetsVisibility()
         setDeviceTabWidgetsVisibility(DeviceTab::PentawallMini);
         setMaximumNumberOfLeds(MaximumNumberOfLeds::PentawallMini);
         break;
+    case SupportedDevices::PentawallNetDevice:
+        setDeviceTabWidgetsVisibility(DeviceTab::PentawallNet);
+        setMaximumNumberOfLeds(MaximumNumberOfLeds::PentawallNet);
+        break;
     case SupportedDevices::ArdulightDevice:
         setDeviceTabWidgetsVisibility(DeviceTab::Ardulight);
         setMaximumNumberOfLeds(MaximumNumberOfLeds::Ardulight);

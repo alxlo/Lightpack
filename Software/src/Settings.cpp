@@ -90,6 +90,10 @@ namespace PentawallMini
 {
 static const QString NumberOfLeds = "PentawallMini/NumberOfLeds";
 }
+namespace PentawallNet
+{
+static const QString NumberOfLeds = "PentawallNet/NumberOfLeds";
+}
 namespace Ardulight
 {
 static const QString NumberOfLeds = "Ardulight/NumberOfLeds";
@@ -118,6 +122,7 @@ static const QString LightpackDevice = "Lightpack";
 static const QString AlienFxDevice = "AlienFx";
 static const QString AdalightDevice = "Adalight";
 static const QString PentawallMiniDevice = "PentawallMini";
+static const QString PentawallNetDevice = "PentawallNet";
 static const QString ArdulightDevice = "Ardulight";
 static const QString VirtualDevice = "Virtual";
 }
@@ -243,6 +248,7 @@ void Settings::Initialize( const QString & applicationDirPath, bool isDebugLevel
     // Init number of leds for each supported device
     setNewOptionMain(Main::Key::Adalight::NumberOfLeds,     Main::Adalight::NumberOfLedsDefault);
     setNewOptionMain(Main::Key::PentawallMini::NumberOfLeds,     Main::PentawallMini::NumberOfLedsDefault);
+    setNewOptionMain(Main::Key::PentawallNet::NumberOfLeds,     Main::PentawallNet::NumberOfLedsDefault);
     setNewOptionMain(Main::Key::Ardulight::NumberOfLeds,    Main::Ardulight::NumberOfLedsDefault);
     setNewOptionMain(Main::Key::AlienFx::NumberOfLeds,      Main::AlienFx::NumberOfLedsDefault);
     setNewOptionMain(Main::Key::Lightpack::NumberOfLeds,    Main::Lightpack::NumberOfLedsDefault);
@@ -670,6 +676,8 @@ bool Settings::isConnectedDeviceUsesSerialPort()
     case SupportedDevices::AdalightDevice:
         return true;
     case SupportedDevices::PentawallMiniDevice:
+        return true;
+    case SupportedDevices::PentawallNetDevice:
         return true;
     case SupportedDevices::ArdulightDevice:
         return true;
@@ -1280,12 +1288,14 @@ void Settings::initDevicesMap()
 
     m_devicesTypeToNameMap[SupportedDevices::AdalightDevice]  = Main::Value::ConnectedDevice::AdalightDevice;
     m_devicesTypeToNameMap[SupportedDevices::PentawallMiniDevice]  = Main::Value::ConnectedDevice::PentawallMiniDevice;
+    m_devicesTypeToNameMap[SupportedDevices::PentawallNetDevice]  = Main::Value::ConnectedDevice::PentawallNetDevice;
     m_devicesTypeToNameMap[SupportedDevices::ArdulightDevice] = Main::Value::ConnectedDevice::ArdulightDevice;
     m_devicesTypeToNameMap[SupportedDevices::LightpackDevice] = Main::Value::ConnectedDevice::LightpackDevice;
     m_devicesTypeToNameMap[SupportedDevices::VirtualDevice]   = Main::Value::ConnectedDevice::VirtualDevice;
 
     m_devicesTypeToKeyNumberOfLedsMap[SupportedDevices::AdalightDevice]  = Main::Key::Adalight::NumberOfLeds;
     m_devicesTypeToKeyNumberOfLedsMap[SupportedDevices::PentawallMiniDevice]  = Main::Key::PentawallMini::NumberOfLeds;
+    m_devicesTypeToKeyNumberOfLedsMap[SupportedDevices::PentawallNetDevice]  = Main::Key::PentawallNet::NumberOfLeds;
     m_devicesTypeToKeyNumberOfLedsMap[SupportedDevices::ArdulightDevice] = Main::Key::Ardulight::NumberOfLeds;
     m_devicesTypeToKeyNumberOfLedsMap[SupportedDevices::LightpackDevice] = Main::Key::Lightpack::NumberOfLeds;
     m_devicesTypeToKeyNumberOfLedsMap[SupportedDevices::VirtualDevice]   = Main::Key::Virtual::NumberOfLeds;

@@ -31,6 +31,7 @@
 #include "LedDeviceAlienFx.hpp"
 #include "LedDeviceAdalight.hpp"
 #include "LedDevicePentawallMini.hpp"
+#include "LedDevicePentawallNet.hpp"
 #include "LedDeviceArdulight.hpp"
 #include "LedDeviceVirtual.hpp"
 #include "Settings.hpp"
@@ -264,6 +265,10 @@ ILedDevice * LedDeviceFactory::createLedDevice(SupportedDevices::DeviceType devi
     case SupportedDevices::PentawallMiniDevice:
         DEBUG_LOW_LEVEL << Q_FUNC_INFO << "SupportedDevices::PentawallMiniDevice";
         return (ILedDevice *)new LedDevicePentawallMini();
+
+    case SupportedDevices::PentawallNetDevice:
+        DEBUG_LOW_LEVEL << Q_FUNC_INFO << "SupportedDevices::PentawallNetDevice";
+        return (ILedDevice *)new LedDevicePentawallNet();
 
     case SupportedDevices::ArdulightDevice:
         DEBUG_LOW_LEVEL << Q_FUNC_INFO << "SupportedDevices::ArdulightDevice";
